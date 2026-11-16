@@ -1,4 +1,4 @@
-//� A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -14,19 +14,15 @@ public class SpanishToEnglish
 
 	public SpanishToEnglish()
 	{
-
-
-
+   pairs = new TreeMap<>();
 	}
 
 	public void putEntry(String entry)
 	{
 		String[] list = entry.split(" ");
-
-
-
-
-
+      String english = list[1];      
+      String spanish = list[0];
+      pairs.put(spanish, english);
 	}
 
 	public String translate(String sent)
@@ -34,10 +30,19 @@ public class SpanishToEnglish
 		Scanner chop = new Scanner(sent);
 		String output ="";
 
-
-
-
-
+      while(chop.hasNext())
+      {
+         String word = chop.next();
+         
+         if(pairs.containsKey(word))
+         { 
+         output += pairs.get(word) + " ";
+         }
+         else
+         {
+         output += word + " ";
+         }
+      }
 
 		return output;
 	}
@@ -47,3 +52,4 @@ public class SpanishToEnglish
 		return pairs.toString().replaceAll("\\,","\n");
 	}
 }
+

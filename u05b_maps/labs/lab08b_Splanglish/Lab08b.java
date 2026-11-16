@@ -1,4 +1,4 @@
-//� A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -18,14 +18,29 @@ public class Lab08b
 		SpanishToEnglish test = new SpanishToEnglish();
 
 		//read in pairs from the file and load the map
+      while(file.hasNextLine())
+      {
+         test.putEntry(file.nextLine());
+      }
 
 		out.println("\n====\tMAP CONTENTS\t====\n\n");
-
 		//print the map
-
+      
 		out.println(test+"\n\n");
 
 		//read in the lines and convert them
+      Scanner secondScan = new Scanner(new File("phrase.dat"));
+      while(secondScan.hasNextLine())
+      {
+         String line = secondScan.nextLine();
+         if(line.length() > 0)
+         {
+         out.println(test.translate(line));
+         }
+      }
+      
+            
 
 	}
 }
+

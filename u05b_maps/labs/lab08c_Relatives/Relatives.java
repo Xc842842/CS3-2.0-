@@ -1,4 +1,4 @@
-//� A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -16,21 +16,23 @@ public class Relatives
 
 	public Relatives()
 	{
-
-
-
+      map = new TreeMap<String, Set<String>>();
 	}
 
 	public void setPersonRelative(String line)
 	{
 		String[] personRelative = line.split(" ");
+      
+      String person = personRelative[0];
+      String relative = personRelative[1];
 
+      if(!map.containsKey(person))
+      {
+         map.put(person, new TreeSet<String>());
+      
+      }
 
-
-
-
-
-
+      map.get(person).add(relative);
 
 
 
@@ -39,7 +41,13 @@ public class Relatives
 
 	public String getRelatives(String person)
 	{
-		return "";
+      if(map.containsKey(person))
+      {
+         return person + " is related to " + map.get(person); 
+      
+      }
+   
+		return person + " has no relatives";
 	}
 
 
@@ -47,7 +55,14 @@ public class Relatives
 	{
 		String output="";
 
-
+      for(String person : map.keySet())
+      {
+         output += person + " is related to"
+      
+      
+      
+      
+      }
 
 
 
@@ -57,3 +72,4 @@ public class Relatives
 		return output;
 	}
 }
+
