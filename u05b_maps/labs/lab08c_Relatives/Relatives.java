@@ -57,8 +57,14 @@ public class Relatives
 
       for(String person : map.keySet())
       {
-         output += person + " is related to"
-      
+         output += person + " is related to ";
+         
+         for(String relative : map.get(person))
+         {
+            output += relative + " ";
+         
+         }
+         output = output.trim() + "\n";
       
       
       

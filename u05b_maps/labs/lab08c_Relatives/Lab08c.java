@@ -15,18 +15,18 @@ public class Lab08c
 	{
 		//add more test cases		
       
-      Scanner scan = new Scanner("lab08c.dat");
+      Scanner scan = new Scanner(new File("lab08c.dat"));
       Relatives RList = new Relatives();
       
       int num = scan.nextInt();
+      
       scan.nextLine();      
       
-      while(scan.hasNext())
+      for(int i = 0; i < num; i++)
       {
          RList.setPersonRelative(scan.nextLine());
-      
       }
-      
+      out.println(RList);
       
 	}
 }
