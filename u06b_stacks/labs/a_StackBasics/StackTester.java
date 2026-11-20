@@ -1,4 +1,4 @@
-//� A+ Computer Science  -  www.apluscompsci.com
+//Â© A+ Computer Science  -  www.apluscompsci.com
 //Name -
 //Date -
 //Class -
@@ -18,15 +18,37 @@ public class StackTester
 
 	public StackTester(String line)
 	{
+   setStack(line);
 	}
 	
 	public void setStack(String line)
 	{
+      stack = new Stack<String>();
+
+      String[] values = line.split(" ");
+
+      for(String s : values)
+      {
+         stack.push(s); 
+      }
 	}
 
 	public void popEmAll()
 	{
+   while (!stack.isEmpty())
+   {
+    out.print(stack.pop() + " ");  
+   }
+   
 	}
 
 	//add a toString
+   
+   public String toString()
+   {
+      return stack + "";
+   
+   
+   }
 }
+
