@@ -3,14 +3,16 @@
 //Date -
 //Class -
 //Lab  -
-
-import java.util.Scanner;
-import static java.lang.System.*;
+import static java.lang.System.out;
 
 public class Lab13c
 {
 	public static void main ( String[] args )
 	{
 		//add test cases
+
+
+		String testcase = "7 8 + 2 -";
+		out.println(ExpressionSolver.solvePostfix("7 8 + 2 -"));
 	}
 }

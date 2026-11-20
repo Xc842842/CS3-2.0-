@@ -3,11 +3,8 @@
 //Date -
 //Class -
 //Lab  -
-
-import java.util.Stack;
 import java.util.Scanner;
-import static java.lang.System.*;
-
+import java.util.Stack;
 public class ExpressionSolver
 {
    /** Returns the result of applying the given operator 
@@ -18,13 +15,57 @@ public class ExpressionSolver
                a supported operator.
    **/
    private static double calc(double one, double two, String op) {
-   
+      
+   if(op.equals("+"))
+   {
+      return one + two;
+
+   }
+      
+   if(op.equals("-"))
+   {
+      return one - two;
+   }
+
+   if(op.equals("*"))
+   {
+      return one * two;
+   }
+   if(op.equals("/"))
+   {
+      return one / two;
+   }
+
+   throw new UnsupportedOperationException("Unsupported operator: " + op);
    }
 
    /*** Postfix Evaluator ***/   
    public static double solvePostfix(String expression) {
    
-      return 0.0;
+      Stack<Double> operands = new Stack<>();
+      Scanner scan = new Scanner(expression);
+
+      while(scan.hasNext())
+      {
+         String value = scan.next();
+
+         if(isNumber(value))
+         {
+            operands.push(Double.parseDouble(value));
+         }
+
+         else
+         {
+            double one = operands.pop();
+            double two = operands.pop();
+            operands.push(calc(two, one, value));
+         }
+
+      }
+
+      scan.close();
+
+      return operands.pop();
    } 
         
    /*** Prefix Evaluator ***/   
