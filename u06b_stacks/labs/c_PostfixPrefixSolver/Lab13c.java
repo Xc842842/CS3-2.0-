@@ -14,5 +14,9 @@ public class Lab13c
 
 		String testcase = "7 8 + 2 -";
 		out.println(ExpressionSolver.solvePostfix("7 8 + 2 -"));
+
+		out.println(ExpressionSolver.solvePrefix("+ + 2 7 + 1 2"));
+
+		out.println(ExpressionSolver.solvePrefix("- 1 + 2 + 3 4"));
 	}
 }
