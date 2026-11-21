@@ -69,10 +69,34 @@ public class ExpressionSolver
    } 
         
    /*** Prefix Evaluator ***/   
-   public static double solvePrefix(String expression) {
-   
-      return 0.0;
-   }   
+   public static double solvePrefix(String expression) 
+   {
+     Stack<Double> stack = new Stack<>();
+     String[] tokens = expression.trim().split("\\s+");
+      Stack<String> operators = new Stack<>();
+
+     for (int i = tokens.length - 1; i >= 0; i--) {
+        String token = tokens[i];
+
+
+        if (isNumber(token)) {
+           stack.push(Double.parseDouble(token));
+        } else 
+         {
+            operators.push(token);
+            if(stack.size() >= 2) 
+               {
+                  double one = stack.pop();
+                  double two = stack.pop();
+                  stack.push(calc(one, two, token));
+                  operators.pop();
+               }
+          }
+         }
+     return stack.pop();
+      }
+
+      
    
    //This catches both kinds of exceptions
    //that parseDouble might throw.
